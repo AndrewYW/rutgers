@@ -1,4 +1,9 @@
 # Software Methodology CS 198:213, Fall 2016
+
+This course aims to teach essential principles, techniques and tools used to develop large, modern software programs. These include object-oriented programming and design, Unified Modeling Language (UML), asynchronous (event-driven) programming in a Graphical Use Interface (GUI) framework, object persistence, code maintenance and version management using Git and Bitbucket, developing apps for the mobile platform (Android), multithreading, design patterns, and new Java language features such as lambda expressions and streams.
+
+This course is intended for majors and other students interested in exploring the fundamental principles and techniques central to large modern software development, and requires a strong background in basic computing techniques including searching and sorting, and object-oriented programming in Java (CS111) as well as the analysis, design and implementation of data structures in Java (CS112).
+
 There is no required/recommended text for this course. Lecture notes and references to online content will be posted on this site.
 
 ## Topics
@@ -16,10 +21,11 @@ There is no required/recommended text for this course. Lecture notes and referen
 ## Grading
 The distribution of points that will be used in determining the letter grade is as follows, out of a total of 1000 points:
 
-- HOMEWORK ASSIGNMENTS : 17.5%
+- OOD/OOP ASSIGNMENT : 12.5%
+- GUI ASSIGNMENT : 5%
 - MVC PROJECT : 22.5%
 - ANDROID PROJECT : 20%
-- EXAMS : 40%
+- EXAMS (4 exams, no final): 40%
 
 ## Instructor
 
