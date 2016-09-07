@@ -1,6 +1,6 @@
 # Databases 336
 - Tomasz Imielinski
-  - timielinski@gmail.com
+  - [timielinski@gmail.com](timielinski@gmail.com)
 
 # Class content
 - Weeks 1/2 - Intro, SQL
