@@ -24,4 +24,37 @@
 - **Java**: James Gosling (SUN Microsystems)
   - Originally conceived as a hardware independent software platform used in consumer electronics
   - **WORA** - **W**rite **O**nce **R**un **A**nywhere
-  
+  - Java 1.0 released in 1996
+  - JVMs available for SPARC, Solaris, Windows NT, Windows 95, Linux
+  - Supported by Netscape Navigator 2.0 browser
+
+## OOP - Constructors, Inheritance
+#### Constructor
+- A constructor creates an object: T/**F**
+  - A constructor initializes an object
+  - In statement **new X()**, the **new X** creates an X object, while **X()** part calls the no-arg constructor of X on behalf of new object to initialize it
+
+- When an object is created with **new**, its fields are initialized to its intrinsic default values (zero for int, null for object references, etc.): **T**/F
+
+- **public class Point {}**
+  - Will this class definition compile? **Y**/N
+  - To create a new instance of Point: **new Point();**
+  - The compile throws a default constructor
+
+- Default constructor is thrown only when there is no defined constructor
+
+```java
+
+public class Point {
+  int x, y;
+  public Point(int x, int y) {
+    this.x = x; this.y = y;
+  }
+  public Point(int x) {
+    this(x, 0);
+  }
+  public Point() {
+    this(0, 0);
+  }
+}
+```
