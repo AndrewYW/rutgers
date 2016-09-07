@@ -1,36 +1,3 @@
-# Databases 336
-- Tomasz Imielinski
-  - timielinski@gmail.com
-
-# Class content
-- Weeks 1/2 - Intro, SQL
-- Week 3 - Data modeling, Tables, Queries
-- Week 4 - Functional dependencies and decompositions
-- Week 5 - Decompositions and Normal Forms
-- Week
-## Teaching method
-- Learn by doing
-
-## Grading
-- Projects - 50%
-- Quizzes/exams - 25%
-- Final job interview - 15%
-- Homeworks - 10%
-- Extra credit - Best work, selection for presentation, great job presenting
-- Circle of trust - Distinguished class participation
-
-## Quizzes
-- SQL, Data modeling, relational theory, transaction, IR
-
-## Mini quizzes
-- Real movie reviews
-  - Search and rank according to cosine similarity and TFIDF
-- Discover patterns in data
-- Mongo DB project
-
-### Textbook reference
-- Garcia Molina, Ullman, Widom - "Database Concepts"
-
 # Lecture 1 - Sept 7, 2016
 ## When do you need a database?
 - Lots of data
@@ -79,6 +46,31 @@
 - NoSQL
 
 ## History goes in circles
+- Codd criticized pre 1970 databases for lack of clear query languages, data independence, and de-normalized data
+  - This is what NoSQL databases are
 
 ## What's new
--
+- High performance, web demands
+- Hundreds/thousands of simple queries per second
+- Data is complex, lots of text, semi structured data, structured data
+
+## So here goes
+- SQL - in web applications, no need for ad hoc queries
+- Programmer productivity doesn't matter as much
+
+## Code, not Codd, is king
+- NoSQL - coding, both on physical layer (ex. managing clusters, indexing, hashing along with 'logic')
+  - No more Codd's separation of logical and physical layers of data
+
+## SQL Query snippet
+
+```SQL
+SELECT s.bar FROM sells s JOIN beer b ON s.beer = b.name
+  WHERE b.manf = X AND
+    EXISTS( SELECT * FROM frequents f
+      JOIN likes l ON l.drinker = f.drinker JOIN beer
+      b1 ON b1.name = l.beer
+      WHERE f.bar = s.bar AND b1.manf = b.manf)
+```
+
+- All bars that serve a beer from manufacturer X and are frequented by at least one person that likes a beer from that manufacturer.
