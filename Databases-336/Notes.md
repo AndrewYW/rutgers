@@ -203,7 +203,7 @@ WHERE Likes.drinker = JD.drinker;
 
 ```
 
- ## Single-Tuple Subquery
+ ##  Single-Tuple Subquery
 
  - Using Sells(bar, beer, price) find bars that serve Miller for same price Joe charges for Bud:
 
