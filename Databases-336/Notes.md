@@ -197,12 +197,12 @@ WHERE b1.manf = b2.manf AND b1.name < b2.name;
 SELECT beer
 FROM Likes, (SELECT drinker
              FROM Frequents
-             WHERE bar = 'Joe s bar')JD
+             WHERE bar = 'Joes bar')JD
 WHERE Likes.drinker = JD.drinker;
 ```
 
 
- ##  Single-Tuple Subquery
+ ### Single-Tuple Subquery
 
  - Using Sells(bar, beer, price) find bars that serve Miller for same price Joe charges for Bud:
 
