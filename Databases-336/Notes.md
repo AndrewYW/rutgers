@@ -201,8 +201,7 @@ FROM Likes, (SELECT drinker
 WHERE Likes.drinker = JD.drinker;
 ```
 
-
- ### Single-Tuple Subquery
+## Single-Tuple Subquery
 
  - Using Sells(bar, beer, price) find bars that serve Miller for same price Joe charges for Bud:
 
@@ -212,5 +211,6 @@ FROM Sells
 WHERE beer = 'Miller' AND price = (SELECT price
                                    FROM   Sells
                                    WHERE bar = 'Joe's Bar' AND beer = 'Bud');
-
 ```
+
+## New
