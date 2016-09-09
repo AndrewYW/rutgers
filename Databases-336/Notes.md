@@ -197,7 +197,7 @@ WHERE b1.manf = b2.manf AND b1.name < b2.name;
 SELECT beer
 FROM Likes, (SELECT drinker
              FROM Frequents
-             WHERE bar = 'Joes bar')JD
+             WHERE bar = 'Joe's bar')JD
 WHERE Likes.drinker = JD.drinker;
 ```
 
