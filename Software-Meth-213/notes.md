@@ -58,3 +58,177 @@ public class Point {
   }
 }
 ```
+
+
+# Lecture 2, Sept 12, 2016
+
+## OOP - Inheritance
+
+```java
+public class Point {  //Superclass
+  int x,y;
+  public Point(int x, int y) {
+    this.x = x; this.y = y;
+  }
+}
+
+Point p = new Point(3,4);
+
+public class ColoredPoint //Subclass
+extends Point {
+    //Inherits x and y from superclass Point
+    //Code REUSE
+}
+
+ColoredPoint cp = new ColoredPoint(); //"Implicit super constructor Point() is undefined for default constructor. Must define explicit constructor."
+
+```
+
+## Inheritance - Subclass constructor
+
+```java
+public class ColoredPoint
+extends Point{
+  public ColoredPoint(){    //Default constructor
+    super();                //Calls superclass's constructor
+    /*Implicit super constructor Point() is undefined for default constructor. Must define an explicit constructor.*/
+  }
+}
+```
+
+- First statement in a subclass constructor should invoke a superclass constructor (Or another constructor in the class, with `this(...)`)
+- Default constructor always calls a superclass no-arg constructor
+
+- Problem with previous: `Point` class doesn't have a no-arg constructor
+
+## The ideal inheritance subclass example
+```java
+public class ColoredPoint
+extends Point{
+  Strong color;
+  public ColoredPoint(int x, int y, String color) {
+    super(x,y);   //calls superclass's constructor
+    this.color = color;
+  }
+}
+```
+
+- Will this alternative compile? :
+
+```java
+public ColoredPoint(int x, int y, String color) {
+  this.x = x; this.y = y;
+  this.color = color;
+}
+```
+- No `super()`: required
+
+## Inheritance - why call `super()`?
+
+- Think of subclass instance as 2 parts: superclass part (inherited), and new subclass part
+- Initialization of superclass part is best done by superclass constructor (code reuse)
+- Thus, first initialize superclass part, then code to initialize subclass
+- Q: When `ColoredPoint` instance is created, is an inner `Point` instance created as well?
+  - A: No -- code reuse, not *instance* reuse
+
+## Inheritance - Fields and Methods
+
+```java
+package geometry;
+
+public class Point{
+  int x,y;
+  public Point(int x, int y) {
+    this.x = x; this.y = y;
+  }
+
+  public int getX() {
+    return x;
+  }
+
+  public int getY() {
+    return y;
+  }
+
+  public String toString() {
+    return x + "," + y;
+  }
+}
+```
+
+```java
+package geometry;
+
+public class ColoredPoint
+extends Point {
+  String color;
+
+  public ColoredPoint(int x, int y, String color) {
+    super(x,y);
+    this.color = color;
+  }
+
+  public String toString() {    //Implementation overrides inherited code
+    return super.toString() + "," + color;
+  }   //Reusing inherited method code in overriding method is good programming practice
+}
+```
+
+## Static and Dynamic Types/Private Fields
+
+```java
+
+public class PointApp {
+  public static void main(String[] args) {
+    Point p1 = new Point(2,3);
+
+    ColoredPoint p2 = new ColoredPoint(4, 5, "blue");
+
+    Point p3 = new ColoredPoint(2,3,"red");
+  }
+}
+```
+
+Static, Compile-Time, Type | Dynamic, Run-Time, Type |
+--- | --- |
+p1 | 2, 3 |
+p2 | 4, 5 (blue) |
+p3 | 2, 3 (red) |
+
+
+## Dynamic Binding  -- IMPORTANT
+
+```java
+public class PointApp {
+  public static void main(String[] args) {
+    Point p1 = new Point(2,3);
+
+    ColoredPoint p2 = new ColoredPoint(4, 5, "blue");
+
+    Point p3 = new ColoredPoint(2,3,"red");
+
+    System.out.println(p2.getColor()); // returns 'blue'
+    System.out.println(p3.getX());     // returns 2
+    System.out.println("p3 + " + p3);  // returns 'p3 = 2,3,red'
+                //Dynamic binding
+  }
+}
+```
+
+- Static type of p3 is `Point`, but dynamic type (Type of instance it points to) is `ColoredPoint`.
+- So, the `p3.toString()` static call is bound to dynamic type, `ColoredPoint`
+
+
+## Static and Dynamic types cont.
+
+```java
+public class PointApp{
+  public static void main(Strings[] args) {
+    Point p5 = new ColoredPoint(1,2,green);
+
+    System.out.println(p5.getColor());
+  }
+}
+```
+
+- Will not compile: because static type of `p5` is `Point`, **ONLY** members of `Point` class can be syntactically referenced by p5. Since `getColor` is not in the `Point` class, compiler flags error

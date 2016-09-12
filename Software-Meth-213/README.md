@@ -25,7 +25,7 @@ The distribution of points that will be used in determining the letter grade is 
 - GUI ASSIGNMENT : 5%
 - MVC PROJECT : 22.5%
 - ANDROID PROJECT : 20%
-- EXAMS (4 exams, no final): 40%
+- EXAMS (3 exams, no final): 12%, 14%, 14%
 
 ## Instructor
 
@@ -33,4 +33,5 @@ Sesh Venugopal
 
 [venugopa@cs.rutgers.edu](venugopa@cs.rutgers.edu), Hill 406
 
-Office hours: TBA
+Office hours: Tues 5-6 Tillet lRC 111L
+    Thu
