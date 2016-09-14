@@ -73,14 +73,104 @@ WHERE f.bar = s.bar AND s.beer = 'Original Premium Lager Dog';
 
 6. Bars which are frequented by John or Rebecca but not by both of them
 
+SELECT DISTINCT f1.bar
+FROM frequents f1
+WHERE f1.drinker = 'Rebecca';
+
+SELECT DISTINCT f2.bar
+FROM frequents f2
+WHERE f2.drinker = 'John';
 
 
 7. Drinkers who frequent at least three bars
+
+
+
 8. Drinkers who frequent bars which sell some beer they like
 9. Beers which are served by bars which John frequents
+
+SELECT DISTINCT s.beer
+FROM sells s, frequents f
+WHERE f.drinker = 'John' AND f.bar = s.bar
+
+'Hefeweizen Doppelbock'
+'Original Premium Lager Dog'
+'Budweiser'
+
 10. Bars which serve some beers which John or Rebecca like and which are cheaper than $5
+
+
 11. Bars which serve some beers which Mike likes or which John likes
+
+SELECT DISTINCT s.bar
+FROM likes mike, likes john, sells s
+WHERE mike.beer = s.beer AND john.beer = s.beer;
+
+'Britannia Arms'
+'Cabana'
+'Caravan'
+'Club 175'
+'Coconut Willie\'s Cocktail Lounge'
+'Gecko Grill'
+'Giza Hookah Lounge'
+'Seven Bamboo'
+'The Blank Club'
+'The Shark and Rose'
+'A.P. Stump\'s'
+'Hedley Club'
+'Blue Tattoo'
+'The Backbeat'
+'Blue Angel'
+
+
 12. Drinkers who like both Hefeweizen and Killian's
+
+SELECT l1.drinker
+FROM likes l1, likes l2
+WHERE l1.beer = 'Hefeweizen' AND l2.beer = 'Killian\'s' AND l1.drinker = l2.drinker
+
 13. List all bars, beers they sell and beer prices in euros
+
+SELECT bar, beer, price*.89 AS priceinEuros
+FROM sells
+
+'A.P. Stump\'s','Hefeweizen','5.3400'
+'Blue Angel','Hefeweizen Doppelbock','4.8950'
+'Blue Angel','Original Premium Lager Dog','5.5625'
+'Blue Tattoo','Killian\'s','5.3400'
+'Britannia Arms','Budweiser','5.7850'
+'Cabana','Budweiser','4.4500'
+'Caravan','Budweiser','4.8950'
+'Caravan','Original Premium Lager Dog','3.1150'
+'Club 175','Budweiser','4.0050'
+'Coconut Willie\'s Cocktail Lounge','Budweiser','2.8925'
+'Eulipia','Hefeweizen Doppelbock','4.0050'
+'Gecko Grill','Budweiser','2.6700'
+'Giza Hookah Lounge','Budweiser','2.8925'
+'Giza Hookah Lounge','Stolichnaya Citrona','5.3400'
+'Hedley Club','Hefeweizen','7.1200'
+'Seven Bamboo','Budweiser','2.2250'
+'The B-Hive','Michelob Amber Bock','4.4500'
+'The Backbeat','Killian\'s','3.1150'
+'The Blank Club','Budweiser','4.8950'
+'The Shark and Rose','Budweiser','4.0050'
+'The Shark and Rose','Original Premium Lager Dog','4.8950'
+
 14. Bars with names containing "The"
+
+SELECT name
+FROM bars
+WHERE name LIKE '%The%'
+
+'The B-Hive'
+'The Backbeat'
+'The Blank Club'
+'The Shark and Rose'
+
 15. Drinkers who like Killian's and who also frequent Gecko Grill
+
+SELECT f.drinker
+FROM frequents f, likes l
+WHERE (l.beer = 'Killian\'s') AND f.bar = 'Gecko Grill' AND f.drinker = l.drinker
+
+-- No results --
