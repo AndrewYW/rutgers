@@ -217,21 +217,292 @@ public class PointApp {
 
 - Static type of p3 is `Point`, but dynamic type (Type of instance it points to) is `ColoredPoint`.
 - So, the `p3.toString()` static call is bound to dynamic type, `ColoredPoint`
-
+- This results in the overriding version of `toString()` being executed
 
 ## Static and Dynamic types cont.
 
 ```java
 public class PointApp{
   public static void main(Strings[] args) {
-    Point p5 = new ColoredPoint(1,2,green);
 
+    Point p5 = new ColoredPoint(1,2,green);
     System.out.println(p5.getColor());
+
+    ColoredPoint p4 = new Point(5,6);
   }
 }
 ```
 
-- Will not compile: because static type of `p5` is `Point`, **ONLY** members of `Point` class can be syntactically referenced by p5. Since `getColor` is not in the `Point` class, compiler flags error
+- p5: will not compile: because static type of `p5` is `Point`, **ONLY** members of `Point` class can be syntactically referenced by p5. Since `getColor` is not in the `Point` class, compiler flags error
+- p4 section: also won't work, the color field isn't entered
+  - Analogy: student is missing the student specific information (problem), but has person specific info (not a problem)
+  - Not every `Point` is a `ColoredPoint`, so a `Point` instance cannot be referenced by a `ColoredPoint` variable
+
+# Lecture 3, Sept 14 2016 - Inheritance: Private Fields/Static Members
+
+## Inheritance - Private Fields
+
+```java
+public class Point {
+  private int x, y;
+}
+
+public class ColoredPoint extends Point {
+  //x and y inherited but HIDDEN
+
+  public int getX() {
+    //Override
+    return x;
+  }
+}
+```
+
+- Inherited but hidden: subclass cannot see it, so cannot be directly referenced
+
+```java
+public class ColoredPoint extends Point {
+  //x and y hidden
+  //getX() is not overridden
+}
+
+public class PointApp{
+  public static void main(String[] args) {
+
+    ColoredPoint cp = new ColoredPoint(4, 5, "blue");
+
+    System.out.println(cp.x); //Will not compile, x is hidden
+
+    System.out.println(cp.getX());  //Returns 4
+  }
+}
+```
+
+## Inheritance - Static Members
+
+```java
+
+public class Supercl {
+  static int x;
+  public static void m() {
+    System.out.println("in class Supercl");
+  }
+}
+
+public class Subcl extends Supercl {
+
+}
+
+public class StaticTest {
+  public static void main(String[] args) {
+    Supercl supercl = new Supercl();
+
+    System.out.println(supercl.x);  // returns 0
+
+    Subcl subcl = new Subcl();
+
+    System.out.println(subcl.x); // returns 0 - inherited from Supercl
+
+    subcl.m(); //"in class Supercl" - inherited from Supercl
+  }
+}
+```
+
+- Static fields and methods are inherited
+
+- Now, if Subcl class had info:
+
+```java
+public class Subcl extends Supercl {
+  int x = 3;
+}
+
+public class StaticTest {
+  public static void main(String[] args) {
+    Subcl subcl = new Subcl();
+
+    System.out.println(subcl.x); // returns 3 - instance field x
+
+    Supercl supercl = new Subcl();
+    //Static type       //dynamic type
+
+    System.out.println(supercl.x);    // returns 0 - inherited static field x
 
 
-test
+  }
+}
+
+```
+
+- Dynamic binding doesn't apply to static fields
+- Inherited static fields are statically bound to
+
+## Static method call binding
+
+```java
+public class Sorter {
+  public static void sort(String[] names) {
+    System.out.println("simple sort");
+
+  }
+}
+
+public class IllustratedSorter extends Sorter {
+
+  //override
+  public static void sort(String[] names) {
+    System.out.println("illustrated sort");
+
+  }
+}
+
+Sorter p = new IllustratedSorter();
+//static type   //dynamic type
+
+p.sort();  //"simple sort"
+```
+
+## Inheritance: Object Class/equals method
+
+### Object Class
+
+- Root of java class hierarchy
+  - Every class ultimately is a subclass of `java.lang.Object`
+- Methods in `Object` : all of these are inherited by **any** class (since every class is implicitly a subclass of `Object`)
+  - `equals`: compares address of objects
+  - `toString`: returns address of object
+  - `hashCode`: returns hash code value for object
+
+- Must generally override `equals` and `toString`
+
+### Writing code banking on equals being there
+
+```java
+
+public class Searcher {
+  public static <T> boolean sequentialSearch(T[] list, T target) {
+    for (int i =0; i < list.length; i++) {
+      if(target.equals(list[i])) {
+                //Don't know what T will be at runtime, but guaranteed to have equals method
+        return true;
+      }
+
+      return false;
+    }
+  }
+}
+
+```
+
+- Since `Object` class defines equals, you can independently
+
+### Overriding `equals`
+
+- Boiler-plate way to override `equals` (e.g. `Point`):
+
+```java
+
+public class Point {
+  int x,y;
+  ...
+
+        //header must be same as in Object class
+  public boolean equals(Object o) {
+    if (o == null || !(o instanceof Point)) {
+                        //runtime check
+      return false;     //true if dynamic type is Point or subclass of Point
+    }
+
+    Point other = (Point)o;
+
+    return x == other.x && y == other.y;
+      //Used to implement equality as appropriate (here, if x and y coordinates are equal)
+  }
+}
+
+```
+
+#### Calling the `Point equals` method
+
+```java
+
+Point p = new Point(3,4);
+
+p.equals(p); // True
+
+Point cp = new ColoredPoint(3,4,"black");
+
+p.equals(cp); // True
+
+String s = "(3,4)";
+
+p.equals(s); //False
+             //instanceof shows that s isn't a Point instance
+
+```
+
+## Background: Method Overloading/Overriding
+
+- **Method Overloading**: Two methods in a class have the same name but different numbers, types, or sequences of parameters
+
+```java
+
+class Test {
+  int m(int x) {...}
+  int m(float y) {...}
+}
+
+class Test {
+  int m(int x) {...}
+  float m(float y) {...}
+}
+
+class Test {
+  int m(int x) {...}
+  float m(int y) {...}
+}
+```
+
+- Return type doesn't matter
+- Overloaded if same name, but different signatures
+  - Signature = name + parameters (return type **not** included in signature)
+
+-**Method Overriding**: A method in the subclass has the same signature as in the superclass
+
+### `equals` overload/override
+
+```java
+
+public class Point {
+  int x,y;
+
+  public boolean equals(Object o) {
+    if (o == null || !(o instanceof Point)) {
+      return false;
+    }
+
+    Point other = (Point)o;
+    return x == other.x && y == other.y;
+  }
+
+  public boolean equals(Point p) {
+    if (p==null) {
+      return false;
+    }
+
+    return x == p.x && x == p.y;
+  }
+}
+
+Object o = new Object();
+Point p = new Point(3,4);
+Object op = new Point(3,4);
+
+p.equals(o); //false
+p.equals(p); //true
+p.equals(op); //true
+
+op.equals(o); //false     calls 1st method
+op.equals(p); //true    calls 1st method
+op.equals(op);//true  calls 1st method
+
+```

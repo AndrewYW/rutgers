@@ -73,6 +73,10 @@ WHERE f.bar = s.bar AND s.beer = 'Original Premium Lager Dog';
 
 6. Bars which are frequented by John or Rebecca but not by both of them
 
+
+NOT DONE
+
+
 SELECT DISTINCT f1.bar
 FROM frequents f1
 WHERE f1.drinker = 'Rebecca';
