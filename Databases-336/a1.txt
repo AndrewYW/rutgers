@@ -1,0 +1,59 @@
+1. Bars which sell Michelob Amber Bock or Budweiser
+
+SELECT bars
+FROM sells
+WHERE sells.beer = 'Budweiser' OR sells.beer = 'Michelob Amber Bock';
+
+'Britannia Arms'
+'Cabana'
+'Caravan'
+'Club 175'
+'Coconut Willie\'s Cocktail Lounge'
+'Gecko Grill'
+'Giza Hookah Lounge'
+'Seven Bamboo'
+'The Blank Club'
+'The Shark and Rose'
+'The B-Hive'
+
+2. Drinkers who like some beers other than Budweiser (they do not have to like Budweiser)
+
+SELECT drinker
+FROM likes
+WHERE NOT beer = 'Budweiser'
+
+'John'
+'Mike'
+'John'
+'Mike'
+'Mike'
+'John'
+'John'
+'Mike'
+'John'
+'Mike'
+'Jesse'
+'Mike'
+'John'
+
+3. Beers other than Hefeweizen which are served by Gecko Grill bar
+
+SELECT beer
+FROM sells
+WHERE bar = 'Gecko Grill' AND NOT beer = 'Hefeweizen';
+
+'Budweiser'
+
+4. Bars who serve some beers which John likes
+
+5. Drinkers who frequent bars which serve Original Premium Lager Dog
+6. Bars which are frequented by John or Rebecca but not by both of them
+7. Drinkers who frequent at least three bars
+8. Drinkers who frequent bars which sell some beer they like
+9. Beers which are served by bars which John frequents
+10. Bars which serve some beers which John or Rebecca like and which are cheaper than $5
+11. Bars which serve some beers which Mike likes or which John likes
+12. Drinkers who like both Hefeweizen and Killian's
+13. List all bars, beers they sell and beer prices in euros
+14. Bars with names containing "The"
+15. Drinkers who like Killian's and who also frequent Gecko Grill
