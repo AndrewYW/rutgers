@@ -232,3 +232,6 @@ public class PointApp{
 ```
 
 - Will not compile: because static type of `p5` is `Point`, **ONLY** members of `Point` class can be syntactically referenced by p5. Since `getColor` is not in the `Point` class, compiler flags error
+
+
+test
