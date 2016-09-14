@@ -211,6 +211,80 @@ FROM Sells
 WHERE beer = 'Miller' AND price = (SELECT price
                                    FROM   Sells
                                    WHERE bar = 'Joe's Bar' AND beer = 'Bud');
+
 ```
 
-## New
+# Lecture 3 - Sept 14 2016
+
+## Tough vs Easy SQL Queries
+
+- How to tell when a query requires nested subqueries:
+  - Semantic vs syntactic text in English!
+- How to tell if it requires negation:
+  - Can a tuple in the result of query disappear as a result of adding more tuples?
+    - If yes, then the query is likely **nonmonotonic** and require negation
+    - Some aggregates will also have this effect: `COUNT`, `AVG`, `MAX`, `MIN`
+- Tough queries indicated by presence of words like: *not*, *only*, *all*, *at most*, *whenever*
+- *Self-Joins* are used when you want to refer to two or more tuples in the same relation
+
+
+## Union, Intersection, Difference
+
+- Relations expressed by following forms
+
+## Example: `ALL`
+
+- From `Sells(bar, beer, price)`, find the beers sold for the highest price:
+
+```SQL
+SELECT beer
+FROM Sells
+WHERE price >= ALL(SELECT price FROM Sells);
+```
+
+## NULL values
+
+- Tuples in SQL relations can have `NULL` as a value for one or more components
+- Two common cases:
+  - *Missing value*: data is not in database
+  - *Inapplicable*: e.g., the value of attribute `spouse` for an unmarried person
+
+## Comparing `NULL`s to Values
+
+- Logic of conditions in SQL is 3 valued: `TRUE`, `FALSE`, `UNKNOWN`
+- Comparing any value with `NULL` including itself yields `UNKNOWN`
+-
+
+## Weird example
+
+- From the following Sells relation:
+
+bar | beer | price
+--- | --- | ---
+Joe's Bar | Bud | NULL
+
+```SQL
+SELECT bar
+FROM Sells
+WHERE price < 2.00 OR price >= 2.00;
+
+```
+- Will return empty result:
+  - Compares `NULL` < 2.00 and `NULL` >= 2.00
+    - Both results in `UNKNOWN`
+- Moral of the story: try to avoid `NULL` values
+
+## Bag semantics
+
+- `SELECT-FROM-WHERE` uses bag semantics, but default for union, intersection, and difference is set semantics
+  - i.e: duplicates are eliminated as the operation is applied.
+
+## Example: `DISTINCT`
+
+- From `Sells(bar, beer, price)`, find all the different prices charged for beers:
+
+```SQL
+SELECT DISTINCT price
+FROM Sells;
+```
+- Without `DISTINCT`, each price would be listed as many times as there were bar/beer pairs at that price.
