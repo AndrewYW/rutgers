@@ -44,7 +44,7 @@ WHERE l.drinker = 'John' AND b.beer = l.beer;
 'Cabana'
 'Caravan'
 'Club 175'
-'Coconut Willie\'s Cocktail Lounge'
+'Coconut Willie's Cocktail Lounge'
 'Gecko Grill'
 'Giza Hookah Lounge'
 'Seven Bamboo'
@@ -56,9 +56,25 @@ WHERE l.drinker = 'John' AND b.beer = l.beer;
 
 5. Drinkers who frequent bars which serve Original Premium Lager Dog
 
+SELECT DISTINCT f.drinker
+FROM frequents f, sells s
+WHERE f.bar = s.bar AND s.beer = 'Original Premium Lager Dog';
 
+'Bob'
+'Erik'
+'Herb'
+'Jesse'
+'John'
+'Justin'
+'Mike'
+'Rebecca'
+'Tom'
+'Vince'
 
 6. Bars which are frequented by John or Rebecca but not by both of them
+
+
+
 7. Drinkers who frequent at least three bars
 8. Drinkers who frequent bars which sell some beer they like
 9. Beers which are served by bars which John frequents

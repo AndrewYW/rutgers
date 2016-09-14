@@ -67,6 +67,7 @@ name | city | phone | addr
 
 drinker | bar
 :---: | :---:
+'Mike'|'A.P Stump's'
 'Bob'|'Blue Angel'
 'Erik'|'Blue Angel'
 'Herb'|'Blue Angel'
