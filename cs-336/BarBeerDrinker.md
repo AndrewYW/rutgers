@@ -88,6 +88,32 @@ drinker | bar
 'Vince'|'Seven Bamboo'
 'Mike'|'The Shark and Rose'
 
+## frequents sorted by drinker
+
+drinker | bar
+:---: | :---:
+'Bob'|'Blue Angel'
+'Bob'|'Coconut Willie's Cocktail Lounge'
+'Erik'|'Blue Angel'
+'Herb'|'Blue Angel'
+'Herb'|'Seven Bamboo'
+'Jesse'|'Blue Angel'
+'John'|'Blue Angel'
+'John'|'Caravan'
+'Justin'|'Blue Angel'
+'Justin'|'Gecko Grill'
+'Mike'|'A.P. Stump's'
+'Mike'|'Blue Angel'
+'Mike'|'The Shark and Rose'
+'Rebecca'|'Blue Angel'
+'Rebecca'|'Coconut Willie's Cocktail Lounge'
+'Rebecca'|'Gecko Grill'
+'Tom'|'Blue Angel'
+'Tom'|'Caravan'
+'Vince'|'Blue Angel'
+'Vince'|'Seven Bamboo'
+
+
 ## likes
 
 drinker | beer
@@ -108,6 +134,26 @@ drinker | beer
 'Mike'|'Original Premium Lager Dog'
 'John'|'Stolichnaya Citrona'
 
+## likes sorted by drinker
+
+drinker | beer
+:---: | :---:
+'Jesse'|'Original Premium Lager Dog'
+'John'|'Blue Moon'
+'John'|'Budweiser'
+'John'|'Creamy Dark'
+'John'|'Killian's'
+'John'|'Michelob Golden Draft'
+'John'|'Original Premium'
+'John'|'Stolichnaya Citrona'
+'Mike'|'Blue Moon'
+'Mike'|'Budweiser'
+'Mike'|'Creamy Dark'
+'Mike'|'Hefeweizen'
+'Mike'|'Michelob Golden Draft Light'
+'Mike'|'Original Premium Lager'
+'Mike'|'Original Premium Lager Dog'
+
 ## sells
 
 bar | beer | price
@@ -124,7 +170,6 @@ bar | beer | price
 'Coconut Willie's Cocktail Lounge'|'Budweiser'|'3.25'
 'Eulipia'|'Hefeweizen Doppelbock'|'4.50'
 'Gecko Grill'|'Budweiser'|'3.00'
-'Giza Hookah Lounge'|'Budweiser'|'3.25'
 'Giza Hookah Lounge'|'Stolichnaya Citrona'|'6.00'
 'Hedley Club'|'Hefeweizen'|'8.00'
 'Seven Bamboo'|'Budweiser'|'2.50'
