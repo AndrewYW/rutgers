@@ -22,3 +22,84 @@
 >I am looking forward to an engaging semester! See you all in class on Wednesday.
 
 >-- Sesh Venugopal
+
+## Sept. 12, 2016
+#### USACS Mentoring program
+
+>Hi all,
+
+>The following message is on behalf of USACS.
+
+>Sesh V
+
+>-----
+
+>USACS, the general undergraduate CS organization, is continuing its mentorship
+program this year. Our mentees will have the opportunity to learn practical
+skills used in the tech industry that might not obtained from the theory-driven
+curriculum. Our mentors are proficient in topics ranging from web development
+to machine learning, interview skills to system administration, and more.
+Mentors will have the chance to build upon teaching skills while fostering
+the growth of fellow computer science students. This is also a great way to get
+involved with the Rutgers tech community at large! If any of these things
+interest you, feel free to sign up as a mentor or mentee under the Mentorship
+tab at http://usacs.rutgers.edu/. We will be hosting a number of mentorship
+interest meetings at the beginning of the fall semester to foster connections
+and encourage pairings - more info is available on our website.
+
+## Sept. 12, 2016
+#### HackRU Fall 2016
+
+>Another message from USACS.
+
+>-----------
+>Get pumped! Get hyped! The 11th HackRU is coming!
+
+>October 22-23
+College Ave Student Center
+
+>HackRU is a 24-hour hackathon at Rutgers University. We welcome hundreds of students to join us in building awesome software and hardware projects. Industry experts and mentors come from all over the country to create an environment that fosters an atmosphere of learning through tech talks and one-on-one guidance.
+
+>This event is opened to ALL students—regardless of major or skill level. We encourage beginner and advanced hackers alike to challenge themselves, expand their skills, and make something that they are passionate about. There will be mentors available to help anyone with any questions, as well as tech talks to introduce hackers to new tools and languages.
+
+>For more information and to register for the event, please visit hackru.org. You can also check us on Facebook, Twitter, Instagram, and the Medium. If you have any questions, please feel free to email info@hackru.org.
+
+>We hope to see you there!
+
+## Sept. 16, 2016
+#### Recitation Page + Exam Dates
+
+>Hi all,
+
+>Hope you enjoyed recitation yesterday.
+
+>I have made a Recitation page (toward the top of the nav bar on the left), for recitation problems and solutions.
+
+>Also, I have firmed up the exam dates:
+Exam 1: Wed Oct 12
+Exam 2: Wed Nov 16
+Exam 3: Wed Dec 14
+
+>All exams will be held during class time. I have added these dates to the Calendar.
+
+>Have a good weekend.
+
+>Sesh V
+
+## Sept. 16, 2016
+#### Group Information
+
+>Hello everyone,
+
+>Please enter your group information into the following form by Sept 20, 2016.
+
+>https://goo.gl/forms/voDVBzpVZQ9yhszf1
+
+>(Accessible only when you are logged in to the Rutgers e-mail account)
+
+>Reminders:
+Each group should consist of 2 people (less or more not allowed).
+Each group should enter their information only once to the form.
+
+>Have a good weekend!
+Tugba
