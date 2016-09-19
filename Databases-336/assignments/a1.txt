@@ -73,24 +73,37 @@ WHERE f.bar = s.bar AND s.beer = 'Original Premium Lager Dog';
 
 6. Bars which are frequented by John or Rebecca but not by both of them
 
+SELECT bar
+FROM frequents
+WHERE (drinker = 'John' or drinker = 'Rebecca') and bar NOT IN
+	(SELECT john.bar
+     FROM frequents john, frequents rebecca
+     WHERE (john.drinker = 'John' AND rebecca.drinker = 'Rebecca' AND john.bar = rebecca.bar))
 
-NOT DONE
-
-
-SELECT DISTINCT f1.bar
-FROM frequents f1
-WHERE f1.drinker = 'Rebecca';
-
-SELECT DISTINCT f2.bar
-FROM frequents f2
-WHERE f2.drinker = 'John';
-
+'Caravan'
+'Coconut Willie's Cocktail Lounge'
+'Gecko Grill'
 
 7. Drinkers who frequent at least three bars
 
+SELECT drinker
+FROM frequents
+GROUP BY drinker
+HAVING count(*) > 2
 
+'Mike'
+'Rebecca'
 
 8. Drinkers who frequent bars which sell some beer they like
+
+SELECT DISTINCT f.drinker
+FROM frequents f, sells s, likes l
+WHERE l.drinker = f.drinker AND s.beer = l.beer AND s.bar = f.bar
+
+'John'
+'Mike'
+'Jesse'
+
 9. Beers which are served by bars which John frequents
 
 SELECT DISTINCT s.beer
@@ -105,7 +118,14 @@ WHERE f.drinker = 'John' AND f.bar = s.bar
 
 SELECT DISTINCT s.bar
 FROM sells s, likes john, likes rebecca
-WHERE s.price < 5 AND s.beer = (john.beer OR rebecca.beer)
+WHERE s.price < 5 AND ((s.beer = john.beer AND john.drinker = 'John') OR (s.beer = rebecca.beer AND rebecca.drinker = 'Rebecca'));
+
+'Club 175'
+'Coconut Willie\'s Cocktail Lounge'
+'Gecko Grill'
+'Seven Bamboo'
+'The Backbeat'
+'The Shark and Rose'
 
 11. Bars which serve some beers which Mike likes or which John likes
 
