@@ -160,27 +160,26 @@ drinker | beer
 
 drinker | beer
 :---: | :---:
-'Jesse','Original Premium Lager Dog'
-'Joe','Hefeweizen'
-'John','Blue Moon'
-'John','Bud'
-'John','Budweiser'
-'John','Creamy Dark'
-'John','Killian\'s'
-'John','Michelob Golden Draft'
-'John','Original Premium'
-'John','Stolichnaya Citrona'
-'Mike','Blue Moon'
-'Mike','Bud'
-'Mike','Budweiser'
-'Mike','Creamy Dark'
-'Mike','Hefeweizen'
-'Mike','Michelob Golden Draft Light'
-'Mike','Original Premium Lager'
-'Mike','Original Premium Lager Dog'
-'Vince','Bud'
+'Jesse'|'Original Premium Lager Dog'
+'Joe'|'Hefeweizen'
+'John'|'Blue Moon'
+'John'|'Bud'
+'John'|'Budweiser'
+'John'|'Creamy Dark'
+'John'|'Killian's'
+'John'|'Michelob Golden Draft'
+'John'|'Original Premium'
+'John'|'Stolichnaya Citrona'
+'Mike'|'Blue Moon'
+'Mike'|'Bud'
+'Mike'|'Budweiser'
+'Mike'|'Creamy Dark'
+'Mike'|'Hefeweizen'
+'Mike'|'Michelob Golden Draft Light'
+'Mike'|'Original Premium Lager'
+'Mike'|'Original Premium Lager Dog'
+'Vince'|'Bud'
 
-works?
 
 
 ## sells
