@@ -1,0 +1,33 @@
+1)Drinkers who like only Bud
+
+2)Beers which every drinker who frequents Cabana likes
+
+3) Bars which serve only beer(s) which Joe likes
+
+4) Bars which every drinker frequents
+
+SELECT bar
+FROM frequents f
+GROUP BY bar
+HAVING COUNT(*) = (SELECT count(distinct drinker) FROM frequents);
+
+Blue Angel
+
+5)Drinkers who frequent exactly one bar of bar(s) which  Joe frequents
+
+6) Bars which no drinker frequents
+
+SELECT name
+FROM bars
+WHERE name NOT IN (SELECT bar FROM frequents);
+
+Blue Tattoo
+Britannia Arms
+Club 175
+Eulipia
+Giza Hookah Lounge
+Hedley Club
+Il Fornaio
+The B-Hive
+The Backbeat
+The Blank Club
