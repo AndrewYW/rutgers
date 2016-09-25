@@ -506,3 +506,97 @@ op.equals(p); //true    calls 1st method
 op.equals(op);//true  calls 1st method
 
 ```
+
+# Lecture 5, Sept. 19 2016 - Graphical User Interface, Programmatic Design
+
+## Preparing to build GUIs in Java FX
+
+- Need Java 8, latest Eclipse (Neon)
+- Install e(fx) plugin, see:
+- https://www.eclipse.org/efxclipse/install.html
+- To create FX project in Eclipse, do:
+  - File -> New -> Other -> JavaFX -> JavaFX project
+- Class containing main must be a subclass of javafx.application.Application
+
+## Programmatic Layout
+
+- Fahrenheit Celsius converter - Version 1
+
+```java
+
+@Override
+public void start(Stage primaryStage) {
+  GridPane root = makeGridPane();
+  Scene scene = new Scene(root);
+  primaryStage.setScene(scene);
+  primaryStage.setTitle("Fahrenheit Celsius converter");
+  primaryStage.setResizeable()
+}
+
+private static GridPane makeGridPane() {
+  // all the widgets
+  Text fText = new Text("Fahrenheit");
+  Text cText = new Text("Celsius");
+  TextField f = new Textfield();
+  TextField c = new TextField();
+  Button f2c = new Button(">>>");
+  Button c2f = new Button("<<<");
+
+  Gridpane gridpane = new GridPane();
+  gridpane.add(fText, 0, 0);
+  gridpane.add(f2c, 1, 0);
+  gridpane.add(cText, 2, 0);
+  gridpane.add(f, 0, 1);
+  gridpane.add(c2f, 1, 1);
+  gridpane.add(c, 2, 1);
+
+
+  f.setPrefColumnCount(5);
+  f.setPromptText("-40.0");
+  c.setPrefColumnCount(5);
+  c.setPromptText("-40.0");
+  gridpane.setHgap(10);
+  gridpane.setVgap(10);
+  gridpane.setPadding(new Insets(10,10,10,10));
+  GridPane.setValignment(fText, VPos.BOTTOM);
+  GridPane.setValignment(cText, VPos.BOTTOM);
+
+  return gridpane;
+}
+
+public static void main(String[] args) {
+  launch(args);
+}
+
+
+```
+
+- `String.format("%5.1f", fval);`
+  - Field (output) of 5 characters, with 1 place after decimal: *xxx.x*
+
+
+## Model View Control Design patter
+
+- Data, UI, 'Business' logic
+- Model: set of classes that store and manage data
+- View: set of Java classes and non Java design artifacts (xml, css, etc.) that implement the UI
+- Controller: set of classes that broke between Model and View
+
+
+## View: Set up SceneBuilder
+- Get SceneBuilder 8.2.0 at Gluon:
+  - http://gluonhq.com/open-source/scene-builder/
+  - Allows for SceneBuilder in Exclipse
+  -
+
+
+```java
+
+public void start(Stage primaryStage) throws Exception{
+  FXMLLoader loader = new FXMLLoader();
+  loader.setLocation(getClass().getResource("/f2c/view/F2c.fxml"));
+}
+
+```
+
+- This is to set fxml stuff
