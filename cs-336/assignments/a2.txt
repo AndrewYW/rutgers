@@ -1,8 +1,36 @@
 1)Drinkers who like only Bud
 
+SELECT l.drinker
+FROM (SELECT drinker, beer FROM likes GROUP BY drinker HAVING COUNT(beer) = 1) l
+WHERE l.beer = 'Bud'
+
+Vince
+
 2)Beers which every drinker who frequents Cabana likes
 
+SELECT beer
+FROM likes
+LEFT JOIN frequents ON likes.drinker = frequents.drinker
+WHERE bar = 'Cabana'
+GROUP BY beer
+HAVING COUNT(beer) = (SELECT COUNT(drinker) FROM frequents WHERE bar = 'Cabana');
+
+Bud
+
 3) Bars which serve only beer(s) which Joe likes
+
+
+SELECT singles.bar
+FROM
+	(select *
+	from sells
+	group by bar
+	having count(beer) <= (select count(*) from likes where drinker = 'Joe')) singles,
+
+    likes l
+WHERE singles.beer = l.beer AND l.drinker = 'Joe';
+
+A.P. Stump's
 
 4) Bars which every drinker frequents
 
@@ -14,6 +42,19 @@ HAVING COUNT(*) = (SELECT count(distinct drinker) FROM frequents);
 Blue Angel
 
 5)Drinkers who frequent exactly one bar of bar(s) which  Joe frequents
+
+SELECT f.drinker
+FROM frequents f, (SELECT * FROM frequents WHERE drinker = 'Joe') joe
+WHERE f.bar = joe.bar
+GROUP BY f.drinker
+HAVING COUNT(f.bar) = 1;
+
+Erik
+Herb
+Jesse
+Justin
+Mike
+Vince
 
 6) Bars which no drinker frequents
 
