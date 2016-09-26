@@ -19,7 +19,6 @@ Bud
 
 3) Bars which serve only beer(s) which Joe likes
 
-
 SELECT singles.bar
 FROM
 	(select *
