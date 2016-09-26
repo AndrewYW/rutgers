@@ -600,3 +600,100 @@ public void start(Stage primaryStage) throws Exception{
 ```
 
 - This is to set fxml stuff
+
+
+# Lecture Sept. 26 2016 - Static members of class - Why/when inner classes
+
+## Static for non OOP
+
+- Write a program to echo whatever is typed in:
+
+```java
+
+public class Echo {
+  public static void main (String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("> ");
+    String line = br.readLine();
+    System.out.println(line);
+  }
+}
+
+```
+
+## Static methods for functions
+
+- Extreme use of static methods: `java.lang.Math` class in which every method is static
+  - Every method implements a mathematical function, and nothing needs to be kept in field of an object - no state to be maintained
+- `Math` methods can be called directly on the class:
+  `double sqroot = Math.sqrt(35);`
+- Not able to create an instance of the `Math` class
+
+## static fields for constants
+
+## Static fields for Sharing among Instances
+
+- Use of static field: to record data value as property of class, to be shared among all instances, but is not a constant (can be changed)
+- ex: Counter that keeps track of how many objects of a class are in existence
+
+```java
+
+public class Tiger {
+  ...
+  private static int count = 0;
+  public Tiger(...) {
+    ...
+    count++;
+
+  }
+  protected void finalize() throws Throwable {
+    ...
+    count--;
+  }
+  ...
+}
+
+```
+
+## Static (Class) fields and Methods mixed with Non-static (instance) fields and methods
+
+- When a method is defined as static, you can still use it in instance
+
+### Static: Access
+
+- Always use class name to get at static members of a class, even in situations where you can use an instance, so that code adheres to design implication of static
+- `Tiger.getCount();`
+
+## Static/Nonstatic mix: another example
+
+- Parsing a string into an integer, e.g: "123" -> 123 - where to provide this functionality?
+- Choices:
+  - Have `String` instance method, say, `parseAsInteger` that returns an `int`,:
+    - `int i = "123".parseAsInteger();`
+    - Bad design
+  - Have `String` static method:
+    - `int i = String.parseAsInteger("123");`
+  - Have `Integer` static method:
+    - `int i = Integer.parseInt("123");`
+## Inner classes
+
+- Can access static members through instances (not recommended), but cannot access non static (instances) fields
+
+## Interfaces
+
+### Comparing for inequality in an algorithm implementation
+
+- Every class is a type
+- Every interface is a type
+- Solution is to use a pre-existing interface that is known to prescribe an inequality comparison method
+- Or, define appropriate interface that exists
+- The interface introduces a type that can be checked by the compiler for match between caller and callee
+- e.g: `java.lang.Comparable` interface, which defines a `compareTo` method
+
+```java
+
+public static <T extends Comparable<T>>
+  list[index].compareTo(target)
+
+```
+- Type `T` is not just any class, but one that implements the `java.lang.Comparable` interface, or extends a class (any number of levels down the inheritance chain) that implements this interface
