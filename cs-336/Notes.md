@@ -288,3 +288,8 @@ SELECT DISTINCT price
 FROM Sells;
 ```
 - Without `DISTINCT`, each price would be listed as many times as there were bar/beer pairs at that price.
+
+
+# Lecture, Sept. 28 2016
+
+## Entity Relationship
