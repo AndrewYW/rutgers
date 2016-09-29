@@ -1,5 +1,7 @@
 package application;
 	
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -21,6 +23,13 @@ public class SongLib extends Application {
 	}
 	
 	public static void main(String[] args) {
+		
 		launch(args);
+		File f = new File("/view/songs");
+		if(f.exists() && !f.isDirectory()) {
+			//method for loading songs to listview
+		} else {
+		}
+		
 	}
 }
