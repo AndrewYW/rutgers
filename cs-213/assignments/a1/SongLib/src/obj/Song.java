@@ -1,5 +1,5 @@
 package obj;
-
+import java.util;
 public class Song implements Comparable<Song>{
 	private String title;
 	private String artist;
@@ -39,10 +39,11 @@ public class Song implements Comparable<Song>{
 			if(this.artist.trim().equalsIgnoreCase(o.getArtist().trim())) {
 				return 0;
 			}
+		} else if {
+			
 		}
 		return -1;
 	}
-	
 	
 	
 	
