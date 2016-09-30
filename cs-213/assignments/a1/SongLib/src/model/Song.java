@@ -18,9 +18,7 @@ public class Song {
 	private final StringProperty album;
 	private final IntegerProperty year;
 	
-	public Song() {
-		this(null, null);
-	}
+
 	
 	/**
 	 *  Song Constructor
@@ -31,8 +29,8 @@ public class Song {
 		this.title = new SimpleStringProperty(title);
 		this.artist = new SimpleStringProperty(artist);
 		
-		this.album = new SimpleStringProperty("");
-		this.year = new SimpleIntegerProperty(0000);
+		this.album = new SimpleStringProperty("some album");
+		this.year = new SimpleIntegerProperty(123);
 	}
 	
 	/**
