@@ -1,4 +1,4 @@
-package obj;
+package model;
 import java.util.*;
 public class Song implements Comparable<Song>{
 	private String title;
