@@ -1,0 +1,94 @@
+1. For each restaurant, how many stars < 4 did each get?. List resturants in rank order from top to bottom.
+SELECT RESTAURANT, COUNT(REVIEW_STARS)
+FROM TRIPADVISOR
+where REVIEW_STARS < 4
+group by RESTAURANT;
+
+Goldwasser	82
+Hard Rock Cafe	76
+Kubicki	64
+Original Burger	58
+Restauracja Targ Rybny	57
+Billy's American Restaurant	51
+La Pampa Steak House	41
+Gdanski Bowke	39
+Swojski Smak	37
+Sempre Pizza e Vino - Targ Rybny	33
+Pod Lososiem Restaurant	29
+Pueblo	28
+Pierogarnia Mandu	27
+Retro Cafe	24
+Bar Pod Ryba	22
+Restaurant Metamorfoza	19
+Pikawa	16
+PobiteGary	14
+Cala Naprzod	13
+Nova Pierogova	13
+Wine Bar & Restaurant Literacka	13
+A La Francaise	12
+Bellevue Restaurant	12
+Ritz Restaurant	12
+The Red Door	11
+Pyra Bar	10
+Tawerna Mestwin	10
+Restauracja Kokieteria	9
+P&M Pasta and More	8
+Prologue Restaurant & Bar	8
+Flisak 76	7
+Mercato restaurant	7
+Mito Sushi	6
+Surf Burger	6
+Jozef K	5
+Bioway	4
+La Famiglia Pizza	4
+Oliwa Do Ognia	4
+W Starym Kadrze	4
+Cafe Factotum	3
+Cafe Kamienica	3
+Czekoladowy Mlyn	3
+Familia Bistro	3
+LULA food & drink	3
+Amsterdam bar and bagel	2
+Avocado Vegan and Eko	2
+Dominikanska Restaurant	2
+Monte Carlo Pizza i Wino	2
+Szafarnia 10	2
+Drukarnia Cafe	1
+Fellini	1
+Fukafe	1
+Kawior	1
+Miasto Aniolow Restaurant	1
+Restauracja Euro	1
+San Marco Ristorante E Pizzeria	1
+
+2. Find average stars awarded by top 20 users in user reviews (most experienced). Compare it with the average stars awarded by bottom 20 users (least experienced)
+
+Top 20:
+
+SELECT avg(b.AvgStars) as AvgStars
+FROM (select avg(REVIEW_STARS) as AvgStars
+from TRIPADVISOR
+group by USER_NAME
+order by USER_REVIEWS DESC
+limit 20) b;
+
+AvgStars : 4.16821500
+
+Bottom 20:
+SELECT avg(b.AvgStars) as AvgStars
+FROM (select avg(REVIEW_STARS) as AvgStars
+from TRIPADVISOR
+group by USER_NAME
+order by USER_REVIEWS asc
+limit 20) b;
+
+AvgStars : 4.77463000
+3. Find a user who has written at least 10 reviews and who has the worst ratio of  #helpful reviews to #total reviews
+
+select distinct USER_NAME, (USER_HELPFUL_VOTES/USER_REVIEWS) as ratio
+from TRIPADVISOR
+where USER_REVIEWS > 9
+order by (USER_HELPFUL_VOTES/USER_REVIEWS) asc, USER_REVIEWS desc
+limit 1;
+
+Karolina1... 0.0000
