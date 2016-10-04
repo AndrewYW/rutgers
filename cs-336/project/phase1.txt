@@ -1,0 +1,13 @@
+Sites:
+https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2004
+https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2008
+https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2012
+
+Median earnings by degree:
+http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_B20004&prodType=table
+
+Population profile:
+http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_S0201&prodType=table
+
+Population and labor force projections 2012-2032 NJ by County:
+http://lwd.dol.state.nj.us/labor/lpa/dmograph/lfproj/lfproj_index.html
