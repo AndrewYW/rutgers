@@ -1,3 +1,8 @@
+/**
+ * Song library
+ * Andrew Wang
+ * Rumzi Tadros
+ */
 package application;
 	
 import javafx.application.Application;
@@ -19,12 +24,12 @@ public class SongLib extends Application {
 			SongController controller = loader.getController();
 			controller.start(primaryStage);
 			
-			Scene scene = new Scene(rootLayout, 700, 400);
+			Scene scene = new Scene(rootLayout, 600, 400);
 			primaryStage.setTitle("Song library - Rumzi Tadros & Andrew Wang");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
-			
+			stop();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
