@@ -6,8 +6,19 @@ https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,
 Median earnings by degree:
 http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_B20004&prodType=table
 
-Population profile:
-http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_S0201&prodType=table
-
 Population and labor force projections 2012-2032 NJ by County:
 http://lwd.dol.state.nj.us/labor/lpa/dmograph/lfproj/lfproj_index.html
+
+Per capita income:
+https://www.google.com/publicdata/explore?ds=a7jenngfc4um7_&ctype=l&met_y=population&hl=en&dl=en
+Population per county:
+https://www.google.com/publicdata/explore?ds=a7jenngfc4um7_&ctype=l&met_y=population&hl=en&dl=en
+
+1. Who is your audience. If your project was a live web site - who would be your visitors and what would be the value your web site brings?
+The audience is anyone curious in relationships between election results in NJ counties in the past 3 elections, as well as possible trends for 2016 and 2020. Although NJ as a whole has voted Democrat since the 90's,
+results between counties are different, and may have ties to age group, gender and income levels.
+Our site provides information that may allow for discovery of links between those factors.
+2. Would your users return again and how often? Would they share the url with their friends and why?
+The most likely return users would be the ones who do not know what type of statistic/data they are looking for. The information we have is not particularly applicable for constant usage (as elections are
+once every 4 years)
+Additionally, it would most likely be applicable for projects and reports instead of a pure interest in the statistics covered.
