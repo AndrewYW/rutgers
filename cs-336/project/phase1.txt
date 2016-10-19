@@ -2,7 +2,7 @@ Sites:
 https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2004
 https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2008
 https://en.wikipedia.org/wiki/United_States_presidential_election_in_New_Jersey,_2012
-
+https://en.wikipedia.org/wiki/Statewide_opinion_polling_for_the_United_States_presidential_election,_2016#New_Jersey
 Median earnings by degree:
 http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_B20004&prodType=table
 
@@ -11,3 +11,7 @@ http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid
 
 Population and labor force projections 2012-2032 NJ by County:
 http://lwd.dol.state.nj.us/labor/lpa/dmograph/lfproj/lfproj_index.html
+
+
+1. Who is your audience. If your project was a live web site - who would be your visitors and what would be the value your web site brings?
+2. Would your users return again and how often? Would they share the url with their friends and why?
