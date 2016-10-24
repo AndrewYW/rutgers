@@ -697,3 +697,48 @@ public static <T extends Comparable<T>>
 
 ```
 - Type `T` is not just any class, but one that implements the `java.lang.Comparable` interface, or extends a class (any number of levels down the inheritance chain) that implements this interface
+
+# Lecture, Sept. 28 2016 - Interfaces
+
+## Comparing for Inequality in algorithm implementation
+
+```java
+public class Searcher {
+ ...
+ public static<T> boolean
+ binarySearch(T[] list, T target) {
+   ...
+   list[index].___?___target
+   ...
+ }
+ ...
+}
+```
+
+- `T` is some `Object`, but `Object` does not define inequality comparison method
+  - Need type *type definition* for T that guarantees existence of method for equality comparison
+  - Use a pre-existing *interface* known to prescribe an inequality comparison method
+    - e.g: `java.lang.Comparable`, which has a `compareTo` method.
+```java
+
+public static <T extends Comparable<T>>
+  list[index].compareTo(target)
+
+```
+- T is not just any class, but implements the `Comparable` interface, or extends a class that implements this interface.
+
+## Interfaces
+
+- Interface: generally refers to the means by which an object can be manipulated by its clients
+  - public methods of an object comprise the *implicit interface*
+
+```java
+
+public Interface I { ... }
+public class X implements I { ... }
+
+```
+
+# Lecture, Oct. 24, 2016 - UML Class Diagram III
+
+## Modeling Police Incidents
