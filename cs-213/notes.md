@@ -739,6 +739,14 @@ public class X implements I { ... }
 
 ```
 
-# Lecture, Oct. 24, 2016 - UML Class Diagram III
+# Lecture 13, Oct. 24, 2016 - UML Class Diagram III
 
 ## Modeling Police Incidents
+
+## Association Class
+
+- At times an association between two classes has properties
+  - an *association class* is used to model the properties
+  - ex: Association between person and company: Job, which has properties `description`, `datehired`, `salary`
+
+## More on Inheritance: Why/When
