@@ -719,6 +719,7 @@ public class Searcher {
   - Need type *type definition* for T that guarantees existence of method for equality comparison
   - Use a pre-existing *interface* known to prescribe an inequality comparison method
     - e.g: `java.lang.Comparable`, which has a `compareTo` method.
+
 ```java
 
 public static <T extends Comparable<T>>
