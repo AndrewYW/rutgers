@@ -1,0 +1,17 @@
+Table instances are titled 2004NJ, 2008NJ, 2012NJ.
+
+Queries:
+
+select *
+from 2004NJ
+where PERCAPITA_INCOME > 50000;
+
+select *
+from 2008NJ
+where TOTAL_POPULATION < 300000;
+
+select *
+from 2012NJ
+where PERCENT_DEM > 50;
+
+Results from queries are in the csv files 2004q, 2008q, 2012q, respectively.
