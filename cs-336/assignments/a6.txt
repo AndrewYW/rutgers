@@ -1,0 +1,46 @@
+HW6
+For each of the following schedules, state whether it is conflict-serializable. If yes, provide all equivalent serial schedules. If no, state why it is not conflict-serializable. (ri(X) denotes a read on object X for transaction Ti. wj(Y) denotes a write on object Y for transaction Tj.)
+r1(X), r3(Y), r2(Y), w3(Y), r3(X), r2(Z), w1(X), w2(Z), r1(Z), w1(Z)
+r1(X), r2(Y), r3(Y), w3(Y), r2(Z), w1(X), r3(X), r1(Z), w2(Z), w1(Z)
+r1(X), w1(X), r3(Y), r1(Z), w3(Y), r2(Y), r2(Z), r3(X), w1(Z), w2(Z)
+
+1. Not serializable: r2(y) and w3(y) conflict
+2. Not serializable: w2(z) and r1(z) conflict
+3. Not serializable: r2(z) and w1(z) conflict
+
+Let T1, T2, T3 be the following transactions:
+
+T1: r1(D), w1(B), w1(D)
+T2: r2(C), w2(B)
+T3: r3(D), w3(D), w3(B)　
+For each of the following schedules, state whether it is possible under 2PL protocol? Give your reasons.
+r1(D), r2(C), w2(B), w1(B), r3(D), w3(D), w1(D), w3(B)
+r3(D), r1(D), w1(B), w3(D), r2(C), w2(B), w1(D), w3(B),
+r2(C), r1(D), w2(B), r3(D),w3(D), w3(B), w1(B), w1(D)
+r1(D), r2(C), w2(B), r3(D), w1(B), w3(D),w3(B), w1(D)
+
+1. Not possible
+2. Not possible
+3. Not possible
+4. Not possible
+
+  Let us begin with two bars: Cabana and Old Tavern. Cabana has local patrons A and remote patrons B, while Old Tavern has local patrons C and remote patrons D. Now a new bar New Tavern is opened in this area.  Then Cabana and Old Tavern  begin to lose clients. Suppose we have the followings two transactions:
+T1: Cabana loses all patrons to Old Tavern. First locals, than the rest
+T2: Old Tavern loses all patrons to New Tavern, first locals than the rest
+
+Given the following schedule:
+T2: Insert local patrons of Old Tavern into New Tavern
+T1: Insert local patrons of Cabana into Old Tavern
+T2: Delete local patrons of Old Tavern
+T1: Delete local patrons of Cabana
+T2: Insert remote patrons of Old Tavern into New Tavern
+T2: Delete remote patrons of Old Tavern
+T1: Insert remote patrons of Cabana into Old Tavern
+T1: Delete remote patrons of Cabana
+
+What patrons will each bar have after the execution of this schedule (in terms of A, B, C, D or empty)? Is the schedule serializable (result equivalent to a serial schedule)?\
+
+Cabana:
+Old Tavern: A, B
+New Tavern: C, D
+Serializable: yes
