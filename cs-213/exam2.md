@@ -35,6 +35,8 @@ This includes everything we have done in lectures (up to and including Default M
   3. If neither of the above, then the class must pick the default method by:
     - Overriding it
     - Calling the desired method (`Lion.super.roar()` in Liger)
+
+
 ### When/When not to use Inheritance
 
 - Person/Student/Employee delegation instead of inheritance:
@@ -286,5 +288,6 @@ public class D extends C{
   ```
   - The `Student` `read` method gets called, not the `Person`
 
+  - See above abstract animals implementation
 
 # UML
