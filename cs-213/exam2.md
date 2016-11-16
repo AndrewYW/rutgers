@@ -10,6 +10,31 @@ This includes everything we have done in lectures (up to and including Default M
 - Allows for polymorphism and code reuse
 - Using the structure and behavior of a super class in the subclass
 
+- Inheritance conflict resolution rules:
+  1. Classes come first : takes priority over default method in an interface
+  ```java
+    public class Lion {
+      public void roar(){
+        System.out.println("Lion roar");
+      }
+    }
+    public interface Tiger{
+      default void roar(){
+        System.out.println("Tiger roar");
+      }
+    }
+
+    public class Liger extends Lion implements Tiger {
+      public static void main(String[] args) {
+        new Liger().roar();   //returns Lion roar
+      }
+    }
+
+  ```
+  2. The default method in the most specific sub-interface is used when there are only interface implementations
+  3. If neither of the above, then the class must pick the default method by:
+    - Overriding it
+    - Calling the desired method (`Lion.super.roar()` in Liger)
 ### When/When not to use Inheritance
 
 - Person/Student/Employee delegation instead of inheritance:
